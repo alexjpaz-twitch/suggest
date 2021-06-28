@@ -9,7 +9,7 @@
       const webhookUrl = new URLSearchParams(location.search).get("webhook");      
 
       ComfyJS.onCommand = async ( user, command, message, flags, extra ) => {
-        if( command === "foo" ) {
+        if( command === "suggest" ) {
             try {
               const rsp = await fetch(webhookUrl, {
                 method: "POST",
