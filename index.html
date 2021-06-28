@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const twitchChannel = new URLSearchParams(location.search).get("channel");
+      const twitchToken = new URLSearchParams(location.search).get("token");
+      const webhookUrl = new URLSearchParams(location.search).get("webhook");      
+
+      ComfyJS.onCommand = async ( user, command, message, flags, extra ) => {
+        if( command === "foo" ) {
+            try {
+              const rsp = await fetch(webhookUrl, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  username: `SuggestBot - ${user}`,
+                  content: `>>> ${message}`,
+                })
+              });
+
+              if(rsp.ok) {
+                return `TwitchVotes Thank you (${user}) for the suggestion!`;
+              } else {
+                return `CrreamAwk There was a problem saving the suggestion`;
+              }
+            } catch(e) {
+              return `CrreamAwk There was a problem saving the suggestion`;
+            }
+        }
+      }
+
+      if(twitchToken) {
+        ComfyJS.Init( twitchChannel, twitchToken );
+      } else {
+        ComfyJS.Init( twitchChannel );
+      }
+    </script>
+  </body>
+</html>
