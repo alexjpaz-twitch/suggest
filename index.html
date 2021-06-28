@@ -23,9 +23,9 @@
               });
 
               if(rsp.ok) {
-                return `TwitchVotes Thank you (${user}) for the suggestion!`;
+                ComfyJS.Say(`TwitchVotes Thank you (${user}) for the suggestion!`);
               } else {
-                return `CrreamAwk There was a problem saving the suggestion`;
+                ComfyJS.Say(`CrreamAwk There was a problem saving the suggestion`);
               }
             } catch(e) {
               return `CrreamAwk There was a problem saving the suggestion`;
