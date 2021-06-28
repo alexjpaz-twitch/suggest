@@ -12,6 +12,8 @@ https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
 
 https://github.com/alexjpaz-twitch/suggest?channel=CHANNEL_NAME&webhook=WEBHOOK_URL
 
+5. Add the resulting URL as a hidden browser source in OBS
+
 ## Generating OAuth Token (Optional)
 
 If you want your chatbot to respond when a user makes a suggestion you will need to create a token. Once you create a token you will need to add the `token` parameter to the URL.
